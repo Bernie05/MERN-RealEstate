@@ -10,9 +10,34 @@ import { yariga } from "assets";
 
 import { CredentialResponse } from "../interfaces/google";
 
-// Todo: Update your Google Client ID here
-const GOOGLE_CLIENT_ID =
-	"1041339102270-e1fpe2b6v6u1didfndh7jkjmpcashs4f.apps.googleusercontent.com";
+// TODO is need to get the google client id in my account
+// 1. Access this link: https://console.cloud.google.com/getting-started?project=myfirstapp-ab156
+// 2. From the top left corner click the dropdown button
+// 3. Click New Project
+// 4. Input the information needed
+// 5. After the project is created you can select the project
+// 6. On the left side bar click the APIs & Services
+// 7. On the side bar again click the OAuth consent screen
+//		S1 OAuth consent screen
+//		Click External >> Create
+//			Input Information >> App Name, User Support Email, Developer Email
+//			Click Save and Continue
+//		S2 Scope
+//			Just Click Save & Continue
+// 		S3 Test Users
+//			Just Click Save & Continue
+// 		S4 Summary
+//			Just Click Back to Dashboard
+// 8. On the side bar in left corner click Credential
+//		On the top Click Create Credential
+// 		Click OAuth client ID
+//			Input Information
+//				Application type: Web Application
+//				App Name: Yariga
+//				Authorized Javascript origin same on the Authorized redirect URI
+//					URI1: http://localhost:3000
+//					URI2: http://localhost
+// 9. Copy the client Id & client secret key
 
 export const Login: React.FC = () => {
 	const { mutate: login } = useLogin<CredentialResponse>();
@@ -32,7 +57,7 @@ export const Login: React.FC = () => {
 			try {
 				window.google.accounts.id.initialize({
 					ux_mode: "popup",
-					client_id: GOOGLE_CLIENT_ID,
+					client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
 					callback: async (res: CredentialResponse) => {
 						if (res.credential) {
 							login(res);
