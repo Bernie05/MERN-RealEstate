@@ -1,10 +1,10 @@
-import { useLogin } from "@refinedev/core";
 import { useEffect, useRef } from "react";
+import { useLogin } from "@pankod/refine-core";
 
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import { ThemedTitleV2 } from "@refinedev/mui";
+// import { ThemedTitleV2 } from "@refinedev/mui";
 
 import { yariga } from "assets";
 
@@ -92,13 +92,13 @@ export const Login: React.FC = () => {
 				justifyContent="center"
 				flexDirection="column"
 			>
-				<ThemedTitleV2
+				{/* <ThemedTitleV2
 					collapsed={false}
 					wrapperStyles={{
 						fontSize: "22px",
 						justifyContent: "center",
 					}}
-				/>
+				/> */}
 
 				<GoogleButton />
 
@@ -110,8 +110,8 @@ export const Login: React.FC = () => {
 					Powered by
 					<img
 						style={{ padding: "0 5px" }}
-						alt="Google"
-						src="https://refine.ams3.cdn.digitaloceanspaces.com/superplate-auth-icons%2Fgoogle.svg"
+						alt="Yariga Logo"
+						src={yariga}
 					/>
 					Google
 				</Typography>
